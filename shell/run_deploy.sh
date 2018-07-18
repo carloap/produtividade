@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Rode este shell dentro da pasta do projeto
-# Com o arquivo "deploy_list.txt", será criado um diretório "deploy" 
-# com os arquivos e as estruturas de pastas definidas para subir ao ftp
+# Com o arquivo "deploy_list.txt", será criado um diretório "deploy" com os arquivos e as estruturas de pastas definidas para subir ao ftp
 
 # 1) Criar uma lista de arquivos para subir a partir do DIFF entre commits do GIT > "deploy_list.txt"
 #git diff --name-only SHA1-de SHA1-para > deploy_list.txt
@@ -20,7 +19,7 @@ rm criar_dir.sh
 rm fdeploy_out.txt
 
 # 4) Gerar lista para cópia e copiar para o diretório "deploy":
-for line in $(cat deploy_list.txt); do echo "cp "$line" deploy/"$line ; done> copiar_deploy.sh > copiar_deploy.sh 
+for line in $(cat deploy_list.txt); do echo "cp "$line" deploy/"$line ; done > copiar_deploy.sh
 
 chmod +x copiar_deploy.sh
 ./copiar_deploy.sh

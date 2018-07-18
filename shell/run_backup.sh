@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Rode este shell dentro da pasta do projeto
-# Com o arquivo "deploy_list.txt", será criado um diretório "bkp" 
-# com os arquivos e as estruturas de pastas baixados via ftp
+# Com o arquivo "deploy_list.txt", será criado um diretório "bkp" com os arquivos e as estruturas de pastas baixados via ftp
 
 # Dados de acesso FTP
 HOST='endereco_ip_ou_hostname'

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Rode este shell dentro da pasta do projeto
-# Com o arquivo "deploy_list.txt" contendo a lista dos arquivos afetados para subi-los via FTP
+# Rode este shell dentro da pasta do projeto com o arquivo "deploy_list.txt" contendo a lista dos arquivos afetados para subi-los via FTP
 
 # Dados de acesso FTP
 HOST='endereco_ip_ou_hostname'
