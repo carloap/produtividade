@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# Gerar Deploy: lê um arquivo "lista.txt" com a hierarquia de arquivos e pastas, e cria um diretório "deploy" com o conteúdo
+# OBS: Via GIT, use o seguinte comando para gerar um txt com o "diff" entre os commits:
+#     git diff --name-only SHA1-de SHA1-para > lista.txt
+
 # Declarar variáveis iniciais
-URL_PATH=""
+URL_PATH="./"
 ARR_LIST_PATH=""
 
 # ######################################
@@ -21,16 +25,15 @@ done
 
 echo "URL_PATH ( -p ) = $URL_PATH"
 
-echo "Extraindo lista recursiva do arquivo 'deploy_list.txt'"
-ARR_LIST_PATH=`grep -o "\(.*/\)" deploy_list.txt`
-echo "feito!"
+echo "Lendo arquivos de 'lista.txt'"
+ARR_LIST_PATH=`grep -o "\(.*/\)" lista.txt`
 
 echo "Criando diretórios"
 for line in $ARR_LIST_PATH; do test -d deploy/$line || mkdir -p deploy/$line ; done
-echo "feito!"
 
 echo "Copiando o DEPLOY"
-for line in $(cat deploy_list.txt); do cp -f $URL_PATH$line deploy/$line || ":" ; done 
+for line in $(cat lista.txt); do cp -f $URL_PATH$line deploy/$line ; done 
+
 echo "feito!!"
 
 # FIM
