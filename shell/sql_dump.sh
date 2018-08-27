@@ -16,7 +16,7 @@ F_NOME_ARQUIVO="DUMP_CLIENTES"
 
 # QUERY: Tabela ou Select para extração de dados
 Q_QUERY="select * from saiyans s where s.power_level >= 8000
-limit 0, 50;"
+limit 0, 150;"
 
 # ######################################
 
@@ -60,7 +60,7 @@ while [ $SECONDS -lt $TEMPOFINAL ]; do
     # define o tamanho do arquivo para encerramento da rotina
     COMPARA_TAMANHO_ARQ=$TAMANHO_ARQ
 
-    # autoincrement +50
+    # autoincrement +150
     Q_POSICAO=$(expr $Q_POSICAO + $Q_LIMITE)
 
 done
