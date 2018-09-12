@@ -6,6 +6,7 @@
 MYSQL_H="HOST"
 MYSQL_U="USERNAME"
 MYSQL_P="PASSWORD"
+MYSQL_D="DBNAME"
 
 # Variáveis interna
 Q_POSICAO=0
@@ -43,9 +44,9 @@ while [ $SECONDS -lt $TEMPOFINAL ]; do
     #echo $Q_QUERY # imprime a query como debug
 
     if [ $Q_POSICAO -gt 0 ]; then
-        mysql -h ${MYSQL_H} -u ${MYSQL_U} -p${MYSQL_P} ecommerce2 --execute="${Q_QUERY}" | sed -n '1!p' >> $F_NOME_ARQUIVO".csv" # appenda o resultado num arquivo, eliminando a primeira linha com "sed"
+        mysql -h ${MYSQL_H} -u ${MYSQL_U} -p${MYSQL_P} ${MYSQL_D} --execute="${Q_QUERY}" | sed -n '1!p' >> $F_NOME_ARQUIVO".csv" # appenda o resultado num arquivo, eliminando a primeira linha com "sed"
     else
-        mysql -h ${MYSQL_H} -u ${MYSQL_U} -p${MYSQL_P} ecommerce2 --execute="${Q_QUERY}" >> $F_NOME_ARQUIVO".csv"
+        mysql -h ${MYSQL_H} -u ${MYSQL_U} -p${MYSQL_P} ${MYSQL_D} --execute="${Q_QUERY}" >> $F_NOME_ARQUIVO".csv"
     fi
     
     # Verifica novamente o tamanho do arquivo de saída
